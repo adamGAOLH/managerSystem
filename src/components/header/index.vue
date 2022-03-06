@@ -1,0 +1,168 @@
+<template>
+  <div class="header">
+    <el-row class="header-row" :gutter="24">
+      <el-col :span="10" class="header-row-left">
+        <div class="header-row-left-span" @click="change">
+          <el-icon v-if="show"><fold /></el-icon>
+          <el-icon v-else><expand /></el-icon>
+        </div>
+
+        <div @click="nextTo">后台管理系统</div>
+      </el-col>
+      <el-col :span="10"></el-col>
+      <el-col :span="4" class="header-row-right">
+        <div class="header-row-right-div" @click="Isfull">
+          <el-tooltip
+            class="box-item"
+            effect="dark"
+            :content="fullscreen ? '关闭全屏' : '全屏'"
+            placement="bottom"
+          >
+            <el-icon><rank /></el-icon>
+          </el-tooltip>
+        </div>
+        <div class="header-row-right-div">
+          <el-tooltip
+            class="box-item"
+            effect="dark"
+            :disabled="header.msg < 1"
+            :content="`您有${header.msg}条消息`"
+            placement="bottom"
+          >
+            <el-badge :hidden="header.msg < 1" :value="header.msg" class="item">
+              <el-icon><bell /></el-icon>
+            </el-badge>
+            span
+          </el-tooltip>
+        </div>
+        <el-avatar
+          src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"
+        ></el-avatar>
+        <el-dropdown>
+          <el-button type="primary">
+            Join
+            <el-icon><caret-bottom /></el-icon>
+          </el-button>
+          <template #dropdown>
+            <el-dropdown-menu>
+              <el-dropdown-item>Action 1</el-dropdown-item>
+              <el-dropdown-item>退出登陆</el-dropdown-item>
+            </el-dropdown-menu>
+          </template>
+        </el-dropdown>
+      </el-col>
+    </el-row>
+  </div>
+</template>
+<script lang="ts">
+import {
+  defineComponent,
+  onMounted,
+  onUnmounted,
+  computed,
+  reactive,
+  toRefs,
+} from "vue";
+import { useStore } from "vuex";
+import screenfull from "screenfull";
+import { Fold, Expand, Bell, Rank, CaretBottom } from "@element-plus/icons-vue";
+import { Initdata } from "@/type/components";
+import { ElMessage } from "element-plus";
+import { useRouter } from "vue-router";
+export default defineComponent({
+  name: "v-header",
+  components: { Fold, Expand, Bell, Rank, CaretBottom },
+  setup() {
+    const data = reactive(new Initdata());
+    const store = useStore();
+    const router = useRouter();
+    const show = computed(() => store.state.show);
+    const fullscreen = computed(() => store.state.fullscreen);
+    onMounted(() => {
+      if (document.body.clientWidth < 1500) {
+        change();
+      }
+      if (screenfull.isEnabled) {
+        screenfull.on("change", checkFullScreen);
+      }
+    });
+    onUnmounted(() => {
+      if (screenfull.isEnabled) {
+        screenfull.off("change", checkFullScreen);
+      }
+    });
+    // 左侧菜单隐藏
+    const change = () => {
+      store.commit("handleShow", !show.value);
+    };
+
+    //回到首页
+    const nextTo = () => {
+      console.log("333");
+
+      router.push("/");
+    };
+    const checkFullScreen = () => {
+      store.commit("handleFullscreen", screenfull.isFullscreen);
+    };
+    const Isfull = () => {
+      if (screenfull.isEnabled) {
+        screenfull.toggle();
+      } else {
+        ElMessage.warning({
+          message: "抱歉，当前浏览器不支持全屏功能，可尝试升级",
+          center: true,
+        });
+      }
+    };
+    return {
+      ...toRefs(data),
+      change,
+      show,
+      nextTo,
+      fullscreen,
+      Isfull,
+      checkFullScreen,
+    };
+  },
+});
+</script>
+<style lang="scss" scoped>
+.header {
+  width: 100%;
+  height: 100%;
+  background: #409efc;
+  .header-row {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    .header-row-left {
+      font-size: 30px;
+      display: flex;
+      div {
+        color: #fff;
+        font-size: 22px;
+        display: flex;
+        align-items: center;
+      }
+      .header-row-left-span {
+        margin-right: 10px;
+      }
+      // justify-content: start;
+    }
+    .header-row-right {
+      display: flex;
+      align-items: center;
+      justify-items: end;
+      .header-row-right-div {
+        display: flex;
+        align-items: center;
+        margin-right: 10px;
+        font-size: 22px;
+        color: #fff;
+      }
+    }
+  }
+}
+</style>
