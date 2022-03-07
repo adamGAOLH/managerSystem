@@ -1,13 +1,21 @@
+/*
+ * @Description:
+ * @Version: 1.0
+ * @Author: Gao
+ * @Date: 2022-03-07 11:45:04
+ * @LastEditors: Gao
+ * @LastEditTime: 2022-03-07 16:17:27
+ */
 import { createStore } from "vuex";
 
 export default createStore({
   state: {
-    show: false,
+    isCollapse: true,
     fullscreen: false,
   },
   mutations: {
-    handleShow(stata, data) {
-      stata.show = data;
+    handleisCollapse(stata, data) {
+      stata.isCollapse = data;
     },
     handleFullscreen(state, data) {
       state.fullscreen = data;

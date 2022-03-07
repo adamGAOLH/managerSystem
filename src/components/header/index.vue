@@ -3,8 +3,8 @@
     <el-row class="header-row" :gutter="24">
       <el-col :span="10" class="header-row-left">
         <div class="header-row-left-span" @click="change">
-          <el-icon v-if="show"><fold /></el-icon>
-          <el-icon v-else><expand /></el-icon>
+          <el-icon v-if="isCollapse"><expand /></el-icon>
+          <el-icon v-else><fold /></el-icon>
         </div>
 
         <div @click="nextTo">后台管理系统</div>
@@ -76,7 +76,7 @@ export default defineComponent({
     const data = reactive(new Initdata());
     const store = useStore();
     const router = useRouter();
-    const show = computed(() => store.state.show);
+    const isCollapse = computed(() => store.state.isCollapse);
     const fullscreen = computed(() => store.state.fullscreen);
     onMounted(() => {
       if (document.body.clientWidth < 1500) {
@@ -93,7 +93,7 @@ export default defineComponent({
     });
     // 左侧菜单隐藏
     const change = () => {
-      store.commit("handleShow", !show.value);
+      store.commit("handleisCollapse", !isCollapse.value);
     };
 
     //回到首页
@@ -118,7 +118,7 @@ export default defineComponent({
     return {
       ...toRefs(data),
       change,
-      show,
+      isCollapse,
       nextTo,
       fullscreen,
       Isfull,
