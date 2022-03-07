@@ -13,65 +13,69 @@
       active-text-color="#ffd04b"
       background-color="#545c64"
       class="el-menu-vertical-demo"
-      default-active="2"
+      :default-active="Router"
       text-color="#fff"
-      :collapse="isCollapse"
-      :collapse-transition="false"
+      :collapse="!isCollapse"
       unique-opened
       router
     >
-      <el-sub-menu index="1">
-        <template #title>
-          <el-icon><location /></el-icon>
-          <span>系统首页</span>
-        </template>
-        <el-menu-item-group title="Group One">
-          <el-menu-item index="1-1">item one</el-menu-item>
-          <el-menu-item index="1-2">item one</el-menu-item>
-        </el-menu-item-group>
-        <el-menu-item-group title="Group Two">
-          <el-menu-item index="1-3">item three</el-menu-item>
-        </el-menu-item-group>
-        <el-sub-menu index="1-4">
-          <template #title>item four</template>
-          <el-menu-item index="1-4-1">item one</el-menu-item>
+      <template v-for="res in routerList[0].children" :key="res.meta.index">
+        <el-sub-menu v-if="res.children" :index="res.path">
+          <template #title>
+            <el-icon><location /></el-icon>
+            <span>{{ res.meta.title }}</span>
+          </template>
+          <template v-for="(item, index) in res.children" :key="index">
+            <el-sub-menu v-if="item.childen" :index="item.path">
+              <template #title>{{ item.meta.title }}</template>
+            </el-sub-menu>
+            <el-menu-item v-else :index="item.path">
+              <el-icon><icon-menu /></el-icon>
+              <span>{{ item.meta.title }}</span>
+            </el-menu-item>
+          </template>
         </el-sub-menu>
-      </el-sub-menu>
-      <el-menu-item index="2">
-        <el-icon><icon-menu /></el-icon>
-        <span>系统首页</span>
-      </el-menu-item>
-      <el-menu-item index="3" disabled>
-        <el-icon><document /></el-icon>
-        <span>系统首页</span>
-      </el-menu-item>
-      <el-menu-item index="4">
-        <el-icon><setting /></el-icon>
-        <span>系统首页</span>
-      </el-menu-item>
+        <el-menu-item v-else :index="res.path">
+          <el-icon><icon-menu /></el-icon>
+          <span>{{ res.meta.title }}</span>
+        </el-menu-item>
+      </template>
     </el-menu>
   </div>
 </template>
 <script lang="ts">
 import { computed, defineComponent } from "vue";
 import { useStore } from "vuex";
-import { useRouter } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 import {
   Location,
-  Document,
+  // Document,
   Menu as IconMenu,
-  Setting,
+  // Setting,
 } from "@element-plus/icons-vue";
 export default defineComponent({
   name: "v-menu",
-  components: { Location, Document, IconMenu, Setting },
+  components: { Location, IconMenu },
   setup() {
     const store = useStore();
+    const route = useRoute();
     const router = useRouter();
     const isCollapse = computed(() => store.state.isCollapse);
+    console.log(router);
+    console.log(router.currentRoute.value);
+    const routerList = router.currentRoute.value.matched;
+    console.log(routerList);
+
+    const Router = computed(() => {
+      console.log(router);
+
+      return route.path;
+    });
 
     return {
       isCollapse,
+      Router,
+      routerList,
     };
   },
 });
@@ -84,7 +88,7 @@ export default defineComponent({
   top: 60px;
   bottom: 0;
   overflow-y: scroll;
-   transition: width 0.25s;
+  transition: width 0.25s;
   -webkit-transition: width 0.25s;
   -moz-transition: width 0.25s;
   -webkit-transition: width 0.25s;
@@ -96,7 +100,6 @@ export default defineComponent({
   .el-menu-vertical-demo:not(.el-menu--collapse) {
     width: 200px;
   }
-
 }
 // .menu::-webkit-scrollbar {
 //   width: 0;

@@ -12,10 +12,12 @@
       <v-headers />
     </el-header>
     <el-container>
-      <el-aside >
+      <el-aside width="200px">
         <VMenu />
       </el-aside>
-      <el-main>Main</el-main>
+      <el-main>
+        <router-view />
+      </el-main>
     </el-container>
   </el-container>
 </template>
@@ -55,10 +57,5 @@ export default defineComponent({
 .el-header {
   margin: 0;
   padding: 0;
-
-  .el-aside{
-    //   background: $primary-color;
-      transition: width 0.15s !important;
-  }
 }
 </style>

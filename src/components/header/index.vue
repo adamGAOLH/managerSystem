@@ -3,7 +3,7 @@
     <el-row class="header-row" :gutter="24">
       <el-col :span="10" class="header-row-left">
         <div class="header-row-left-span" @click="change">
-          <el-icon v-if="isCollapse"><expand /></el-icon>
+          <el-icon v-if="!isCollapse"><expand /></el-icon>
           <el-icon v-else><fold /></el-icon>
         </div>
 
