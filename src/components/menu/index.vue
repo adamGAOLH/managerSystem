@@ -4,7 +4,7 @@
  * @Author: Gao
  * @Date: 2022-03-07 15:58:17
  * @LastEditors: Gao
- * @LastEditTime: 2022-03-07 17:19:34
+ * @LastEditTime: 2022-03-08 11:22:52
 -->
 
 <template>
@@ -61,14 +61,8 @@ export default defineComponent({
     const route = useRoute();
     const router = useRouter();
     const isCollapse = computed(() => store.state.isCollapse);
-    console.log(router);
-    console.log(router.currentRoute.value);
-    const routerList = router.currentRoute.value.matched;
-    console.log(routerList);
-
+    const routerList: any = router.currentRoute.value.matched;
     const Router = computed(() => {
-      console.log(router);
-
       return route.path;
     });
 
@@ -101,7 +95,7 @@ export default defineComponent({
     width: 200px;
   }
 }
-// .menu::-webkit-scrollbar {
-//   width: 0;
-// }
+.menu::-webkit-scrollbar {
+  width: 0;
+}
 </style>

@@ -4,7 +4,7 @@
  * @Author: Gao
  * @Date: 2022-03-07 11:45:04
  * @LastEditors: Gao
- * @LastEditTime: 2022-03-07 16:49:33
+ * @LastEditTime: 2022-03-08 11:24:15
 -->
 <template>
   <el-container>
@@ -16,6 +16,7 @@
         <VMenu />
       </el-aside>
       <el-main>
+        <VTageList />
         <router-view />
       </el-main>
     </el-container>
@@ -28,11 +29,13 @@ import { api } from "@/api/demo";
 import { demo } from "@/type/demo";
 import VHeaders from "@/components/header/index.vue";
 import VMenu from "@/components/menu/index.vue";
+import VTageList from "@/components/tagList/index.vue";
 export default defineComponent({
   name: "Home",
   components: {
     VHeaders,
     VMenu,
+    VTageList,
   },
   setup() {
     let data = reactive(new demo());
@@ -56,6 +59,9 @@ export default defineComponent({
 <style lang="scss" scoped>
 .el-header {
   margin: 0;
+  padding: 0;
+}
+.el-main {
   padding: 0;
 }
 </style>

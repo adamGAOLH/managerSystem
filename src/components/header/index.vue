@@ -98,8 +98,6 @@ export default defineComponent({
 
     //回到首页
     const nextTo = () => {
-      console.log("333");
-
       router.push("/");
     };
     const checkFullScreen = () => {
