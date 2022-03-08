@@ -45,7 +45,7 @@
           </el-button>
           <template #dropdown>
             <el-dropdown-menu>
-              <el-dropdown-item>Action 1</el-dropdown-item>
+              <el-dropdown-item @click="openDrawer">设置</el-dropdown-item>
               <el-dropdown-item>退出登陆</el-dropdown-item>
             </el-dropdown-menu>
           </template>
@@ -91,6 +91,9 @@ export default defineComponent({
         screenfull.off("change", checkFullScreen);
       }
     });
+    const openDrawer = () => {
+      store.commit("handleDrawer", true);
+    };
     // 左侧菜单隐藏
     const change = () => {
       store.commit("handleisCollapse", !isCollapse.value);
@@ -121,6 +124,7 @@ export default defineComponent({
       fullscreen,
       Isfull,
       checkFullScreen,
+      openDrawer,
     };
   },
 });

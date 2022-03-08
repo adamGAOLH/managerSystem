@@ -1,9 +1,9 @@
 <template>
-  <div class="login">sfsdfsdfsdfsdfsdfsdfsdf</div>
+  <div class="">登陆</div>
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
 export default defineComponent({
-  name: "login2",
+  name: "index",
 });
 </script>

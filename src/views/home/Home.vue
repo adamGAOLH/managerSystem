@@ -18,6 +18,7 @@
       <el-main>
         <VTageList />
         <router-view />
+        <VDrawer />
       </el-main>
     </el-container>
   </el-container>
@@ -30,12 +31,14 @@ import { demo } from "@/type/demo";
 import VHeaders from "@/components/header/index.vue";
 import VMenu from "@/components/menu/index.vue";
 import VTageList from "@/components/tagList/index.vue";
+import VDrawer from "@/components/drawer/index.vue";
 export default defineComponent({
   name: "Home",
   components: {
     VHeaders,
     VMenu,
     VTageList,
+    VDrawer,
   },
   setup() {
     let data = reactive(new demo());

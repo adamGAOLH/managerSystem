@@ -12,6 +12,7 @@ export default createStore({
   state: {
     isCollapse: true,
     fullscreen: false,
+    isShow: false,
   },
   mutations: {
     handleisCollapse(stata, data) {
@@ -19,6 +20,11 @@ export default createStore({
     },
     handleFullscreen(state, data) {
       state.fullscreen = data;
+    },
+    handleDrawer(state, data) {
+      console.log(data);
+
+      state.isShow = data;
     },
   },
   actions: {},

@@ -26,33 +26,20 @@ const routes: Array<RouteRecordRaw> = [
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      {
-        path: "/login",
-        name: "Login",
-        meta: {
-          title: "登陆页1",
-          index: 4,
-        },
-        // route level code-splitting
-        // this generates a separate chunk (about.[hash].js) for this route
-        // which is lazy-loaded when the route is visited.
-        component: () =>
-          import(/* webpackChunkName: "about" */ "../views/login/login.vue"),
-      },
-      {
-        path: "/login/login2",
-        name: "Login2",
-        meta: {
-          title: "登陆页2",
-          index: 3,
-        },
-        // route level code-splitting
-        // this generates a separate chunk (about.[hash].js) for this route
-        // which is lazy-loaded when the route is visited.
-        component: () =>
-          import(/* webpackChunkName: "about" */ "../views/login2/login2.vue"),
-      },
     ],
+  },
+  {
+    path: "/login",
+    name: "Login",
+    meta: {
+      title: "登陆",
+      index: 1,
+    },
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/login/index.vue"),
   },
 ];
 
@@ -60,5 +47,16 @@ const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
 });
+
+// router.beforeEach((to, from, next) => {
+//   const token = sessionStorage.getItem("token");
+//   if (!token && to.path !== "/login") {
+//     console.log("3");
+
+//     next("/login");
+//   } else {
+//     next();
+//   }
+// });
 
 export default router;

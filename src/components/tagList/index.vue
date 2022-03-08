@@ -12,7 +12,7 @@
     <el-tag
       v-for="(item, index) in tagAry"
       :key="item.name"
-      class="tage-defalut"
+      :class="['tage-defalut', { active: isActive(item.url) }]"
       size="default"
       effect="dark"
       closable
@@ -35,8 +35,9 @@ export default defineComponent({
     const router = useRouter();
     const route = useRoute();
     const isShow = computed(() => data.tagAry.length > 0);
+
     const cloesFun = (val: number) => {
-        const deleItem=data.tagAry[val]
+      const deleItem = data.tagAry[val];
       data.tagAry.splice(val, 1);
       const item = data.tagAry[val] ? data.tagAry[val] : data.tagAry[val - 1];
       if (item) {
@@ -56,6 +57,14 @@ export default defineComponent({
         });
       }
     };
+    // TODO
+    //  const getKey = (o:selectKeyOptionInt):keyof typeof data.options =>{
+    //             const k:string= o.key
+    //             return (k as any)
+    //     }
+    const isActive = (url: string) => {
+      return url === route.fullPath;
+    };
     setFun(route);
     onBeforeRouteUpdate((to: any) => {
       setFun(to);
@@ -64,6 +73,7 @@ export default defineComponent({
       ...toRefs(data),
       isShow,
       cloesFun,
+      isActive,
     };
   },
 });
@@ -71,16 +81,27 @@ export default defineComponent({
 <style lang="scss" scoped>
 .tag-list {
   padding: 10px;
+  border-bottom: 1px solid #f5f3f3;
+}
+.el-tag--default {
+  padding-left: 21px;
 }
 .tage-defalut {
   background: #fff;
   border: 1px solid rgba(124, 141, 181, 0.3);
   color: #495060;
   margin-right: 10px;
+
+  a {
+    color: #495060;
+  }
 }
 .active {
   background: #5ddab4;
   border: 1px solid rgba(124, 141, 181, 0.3);
-  color: #fff;
+  color: #fff !important;
+  a {
+    color: #fff;
+  }
 }
 </style>
