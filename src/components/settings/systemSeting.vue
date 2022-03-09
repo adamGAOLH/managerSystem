@@ -4,14 +4,14 @@
  * @Author: Gao
  * @Date: 2022-03-09 09:37:18
  * @LastEditors: Gao
- * @LastEditTime: 2022-03-09 11:40:10
+ * @LastEditTime: 2022-03-09 17:39:31
 -->
 <template>
   <div class="sys-seting">
     <h4>系统设置</h4>
     <div class="settingli">
       <span>主题</span>
-      <themeColorPickerVue />
+      <themeColorPickerVue @change="changeColor" />
     </div>
     <div class="settingli"><span>语言</span><span>语言</span></div>
     <div class="settingli"><span>Targe-View</span><span>Targe-View</span></div>
@@ -21,9 +21,19 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import themeColorPickerVue from "./themeColorPicker.vue";
+import { useStore } from "vuex";
 export default defineComponent({
   name: "VSystemSeting",
   components: { themeColorPickerVue },
+  setup() {
+    const store = useStore();
+    const changeColor = (value: string) => {
+      store.dispatch("changeColor", value);
+    };
+    return {
+      changeColor,
+    };
+  },
 });
 </script>
 
