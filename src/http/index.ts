@@ -1,3 +1,11 @@
+/*
+ * @Description:
+ * @Version: 1.0
+ * @Author: Gao
+ * @Date: 2022-03-07 11:45:04
+ * @LastEditors: Gao
+ * @LastEditTime: 2022-03-09 09:40:58
+ */
 import axios, { AxiosRequestConfig, AxiosResponse, AxiosError } from "axios";
 
 enum MESG {

@@ -1,9 +1,17 @@
+<!--
+ * @Description:
+ * @Version: 1.0
+ * @Author: Gao
+ * @Date: 2022-03-09 09:37:18
+ * @LastEditors: Gao
+ * @LastEditTime: 2022-03-09 11:40:10
+-->
 <template>
   <div class="sys-seting">
     <h4>系统设置</h4>
     <div class="settingli">
       <span>主题</span>
-      <span>设置</span>
+      <themeColorPickerVue />
     </div>
     <div class="settingli"><span>语言</span><span>语言</span></div>
     <div class="settingli"><span>Targe-View</span><span>Targe-View</span></div>
@@ -12,8 +20,10 @@
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
+import themeColorPickerVue from "./themeColorPicker.vue";
 export default defineComponent({
   name: "VSystemSeting",
+  components: { themeColorPickerVue },
 });
 </script>
 

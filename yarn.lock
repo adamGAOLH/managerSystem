@@ -1700,6 +1700,14 @@
     "@vueuse/shared" "7.7.1"
     vue-demi "*"
 
+"@vueuse/core@^7.7.1":
+  version "7.7.1"
+  resolved "https://registry.npmjs.org/@vueuse/core/-/core-7.7.1.tgz#fc284f4103de73c7fb79bc06579d8066790db511"
+  integrity sha512-PRRgbATMpoeUmkCEBtUeJgOwtew8s+4UsEd+Pm7MhkjL2ihCNrSqxNVtM6NFE4uP2sWnkGcZpCjPuNSxowJ1Ow==
+  dependencies:
+    "@vueuse/shared" "7.7.1"
+    vue-demi "*"
+
 "@vueuse/shared@7.7.1":
   version "7.7.1"
   resolved "https://registry.npmmirror.com/@vueuse/shared/-/shared-7.7.1.tgz#77e312de7275380efce86b0079bd7938791a076b"
