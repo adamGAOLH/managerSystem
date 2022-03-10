@@ -35,7 +35,6 @@ export default defineComponent({
     VSystemSeting,
   },
   setup() {
-
     const store = useStore();
     const isShow = computed(() => store.state.isShow);
     const handleClose = () => {
