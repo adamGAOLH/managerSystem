@@ -7,7 +7,7 @@
           <el-icon v-else><fold /></el-icon>
         </div>
 
-        <div @click="nextTo">后台管理系统</div>
+        <div @click="nextTo">{{t('root.title')}}</div>
       </el-col>
       <el-col :span="10"></el-col>
       <el-col :span="4" class="header-row-right">
@@ -15,7 +15,7 @@
           <el-tooltip
             class="box-item"
             effect="dark"
-            :content="fullscreen ? '关闭全屏' : '全屏'"
+            :content="fullscreen ? t('root.closeFullScreen') : t('root.fullScreen')"
             placement="bottom"
           >
             <el-icon><rank /></el-icon>
@@ -45,8 +45,8 @@
           </el-button>
           <template #dropdown>
             <el-dropdown-menu>
-              <el-dropdown-item @click="openDrawer">设置</el-dropdown-item>
-              <el-dropdown-item>退出登陆</el-dropdown-item>
+              <el-dropdown-item @click="openDrawer">{{t('root.setting')}}</el-dropdown-item>
+              <el-dropdown-item>{{t('root.loginout')}}</el-dropdown-item>
             </el-dropdown-menu>
           </template>
         </el-dropdown>
@@ -69,6 +69,7 @@ import { Fold, Expand, Bell, Rank, CaretBottom } from "@element-plus/icons-vue";
 import { Initdata } from "@/type/components";
 import { ElMessage } from "element-plus";
 import { useRouter } from "vue-router";
+import { useI18n } from "vue-i18n";
 export default defineComponent({
   name: "v-header",
   components: { Fold, Expand, Bell, Rank, CaretBottom },
@@ -76,6 +77,7 @@ export default defineComponent({
     const data = reactive(new Initdata());
     const store = useStore();
     const router = useRouter();
+    const {t}=useI18n()
     const isCollapse = computed(() => store.state.isCollapse);
     const fullscreen = computed(() => store.state.fullscreen);
     onMounted(() => {
@@ -125,6 +127,7 @@ export default defineComponent({
       Isfull,
       checkFullScreen,
       openDrawer,
+      t
     };
   },
 });

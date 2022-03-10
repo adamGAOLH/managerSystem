@@ -983,6 +983,44 @@
     cssnano-preset-default "^4.0.0"
     postcss "^7.0.0"
 
+"@intlify/core-base@9.0.0":
+  version "9.0.0"
+  resolved "https://registry.npmjs.org/@intlify/core-base/-/core-base-9.0.0.tgz#3de223b8532c535d022e5be58f7d56a26d2fb12f"
+  integrity sha512-dxqakT94EV2bFshG3LENQUPWX9yJFCga1BOwJ6mz7J8LnAYVB9Kxw7NRyE2ybN31USW2IUTQH6WWR1yDbCiefQ==
+  dependencies:
+    "@intlify/message-compiler" "9.0.0"
+    "@intlify/message-resolver" "9.0.0"
+    "@intlify/runtime" "9.0.0"
+    "@intlify/shared" "9.0.0"
+
+"@intlify/message-compiler@9.0.0":
+  version "9.0.0"
+  resolved "https://registry.npmjs.org/@intlify/message-compiler/-/message-compiler-9.0.0.tgz#8a1079f8aebcde33057ce769817691ce27ad3e0d"
+  integrity sha512-3oiLj+8z6koRYJwknazjilBsrqnJEAJywr/t39MYVy2yPmwOI1+NDfdDwM9U3ioA2RvsQEUICqW8gmjq1YIElw==
+  dependencies:
+    "@intlify/message-resolver" "9.0.0"
+    "@intlify/shared" "9.0.0"
+    source-map "0.6.1"
+
+"@intlify/message-resolver@9.0.0":
+  version "9.0.0"
+  resolved "https://registry.npmjs.org/@intlify/message-resolver/-/message-resolver-9.0.0.tgz#0077ec24606b6486d238bdef9044e27729f4782c"
+  integrity sha512-LVK4cwu1l33yvBy0UQkEdXm6pZUcbbiparobruJXz+U8jRTmYHBprN59j59YKXEKcV43cHfzNveaQIm84bgxvQ==
+
+"@intlify/runtime@9.0.0":
+  version "9.0.0"
+  resolved "https://registry.npmjs.org/@intlify/runtime/-/runtime-9.0.0.tgz#bf9415ff90c746a9be38a5c32f71cbbe9848eee8"
+  integrity sha512-UqCKduZezb5/qA+XPRfHVvXoLmhnQ8iKMyCh0Lg3ZwjW2vOMep/AgZU3T9cgESe67r4buPYHs7nOBSHbTdjNxg==
+  dependencies:
+    "@intlify/message-compiler" "9.0.0"
+    "@intlify/message-resolver" "9.0.0"
+    "@intlify/shared" "9.0.0"
+
+"@intlify/shared@9.0.0":
+  version "9.0.0"
+  resolved "https://registry.npmjs.org/@intlify/shared/-/shared-9.0.0.tgz#d85b3b5f9033f377c5cf2202cf2459aa49948f36"
+  integrity sha512-0r4v7dnY8g/Jfx2swUWy2GyfH/WvIpWvkU4OIupvxDTWiE8RhcpbOCVvqpVh/xGi0proHQ/r2Dhc0QSItUsfDQ==
+
 "@jridgewell/resolve-uri@^3.0.3":
   version "3.0.5"
   resolved "https://registry.npmmirror.com/@jridgewell/resolve-uri/-/resolve-uri-3.0.5.tgz#68eb521368db76d040a6315cdb24bf2483037b9c"
@@ -1620,6 +1658,11 @@
   resolved "https://registry.npmmirror.com/@vue/devtools-api/-/devtools-api-6.0.12.tgz#7b57cce215ae9f37a86984633b3aa3d595aa5b46"
   integrity sha512-iO/4FIezHKXhiDBdKySCvJVh8/mZPxHpiQrTy+PXVqJZgpTPTdHy4q8GXulaY+UKEagdkBb0onxNQZ0LNiqVhw==
 
+"@vue/devtools-api@^6.0.0-beta.5":
+  version "6.0.13"
+  resolved "https://registry.npmjs.org/@vue/devtools-api/-/devtools-api-6.0.13.tgz#33f8debe2d0239903b6fc8af10ace45ed3a4fab1"
+  integrity sha512-T34EjcArVqzANedEZe2kXQ+AZsld2z1ptJlkOGm87+blk+s6udnP4ze/NYqV8lz1o9AIivimN0xxteLlWiWQdg==
+
 "@vue/eslint-config-prettier@^6.0.0":
   version "6.0.0"
   resolved "https://registry.npmmirror.com/@vue/eslint-config-prettier/-/eslint-config-prettier-6.0.0.tgz#ad5912b308f4ae468458e02a2b05db0b9d246700"
@@ -1692,15 +1735,7 @@
   resolved "https://registry.npmmirror.com/@vue/web-component-wrapper/-/web-component-wrapper-1.3.0.tgz#b6b40a7625429d2bd7c2281ddba601ed05dc7f1a"
   integrity sha512-Iu8Tbg3f+emIIMmI2ycSI8QcEuAUgPTgHwesDU1eKMLE4YC/c/sFbGc70QgMq31ijRftV0R7vCm9co6rldCeOA==
 
-"@vueuse/core@^7.7.0":
-  version "7.7.1"
-  resolved "https://registry.npmmirror.com/@vueuse/core/-/core-7.7.1.tgz#fc284f4103de73c7fb79bc06579d8066790db511"
-  integrity sha512-PRRgbATMpoeUmkCEBtUeJgOwtew8s+4UsEd+Pm7MhkjL2ihCNrSqxNVtM6NFE4uP2sWnkGcZpCjPuNSxowJ1Ow==
-  dependencies:
-    "@vueuse/shared" "7.7.1"
-    vue-demi "*"
-
-"@vueuse/core@^7.7.1":
+"@vueuse/core@^7.7.0", "@vueuse/core@^7.7.1":
   version "7.7.1"
   resolved "https://registry.npmjs.org/@vueuse/core/-/core-7.7.1.tgz#fc284f4103de73c7fb79bc06579d8066790db511"
   integrity sha512-PRRgbATMpoeUmkCEBtUeJgOwtew8s+4UsEd+Pm7MhkjL2ihCNrSqxNVtM6NFE4uP2sWnkGcZpCjPuNSxowJ1Ow==
@@ -8429,6 +8464,11 @@ source-map-url@^0.4.0:
   resolved "https://registry.npmmirror.com/source-map-url/-/source-map-url-0.4.1.tgz#0af66605a745a5a2f91cf1bbf8a7afbc283dec56"
   integrity sha512-cPiFOTLUKvJFIg4SKVScy4ilPPW6rFgMgfuZJPNoDuMs3nC1HbMUycBoJw77xFIp6z1UJQJOfx6C9GMH80DiTw==
 
+source-map@0.6.1, source-map@^0.6.0, source-map@^0.6.1, source-map@~0.6.0, source-map@~0.6.1:
+  version "0.6.1"
+  resolved "https://registry.npmmirror.com/source-map/-/source-map-0.6.1.tgz#74722af32e9614e9c287a8d0bbde48b5e2f1a263"
+  integrity sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==
+
 source-map@^0.4.2:
   version "0.4.4"
   resolved "https://registry.npmmirror.com/source-map/-/source-map-0.4.4.tgz#eba4f5da9c0dc999de68032d8b4f76173652036b"
@@ -8440,11 +8480,6 @@ source-map@^0.5.0, source-map@^0.5.6:
   version "0.5.7"
   resolved "https://registry.npmmirror.com/source-map/-/source-map-0.5.7.tgz#8a039d2d1021d22d1ea14c80d8ea468ba2ef3fcc"
   integrity sha512-LbrmJOMUSdEVxIKvdcJzQC+nQhe8FUZQTXQy6+I75skNgn3OoQ0DZA8YnFa7gp8tqtL3KPf1kmo0R5DoApeSGQ==
-
-source-map@^0.6.0, source-map@^0.6.1, source-map@~0.6.0, source-map@~0.6.1:
-  version "0.6.1"
-  resolved "https://registry.npmmirror.com/source-map/-/source-map-0.6.1.tgz#74722af32e9614e9c287a8d0bbde48b5e2f1a263"
-  integrity sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==
 
 source-map@^0.7.3:
   version "0.7.3"
@@ -9361,6 +9396,15 @@ vue-hot-reload-api@^2.3.0:
   version "2.3.4"
   resolved "https://registry.npmmirror.com/vue-hot-reload-api/-/vue-hot-reload-api-2.3.4.tgz#532955cc1eb208a3d990b3a9f9a70574657e08f2"
   integrity sha512-BXq3jwIagosjgNVae6tkHzzIk6a8MHFtzAdwhnV5VlvPTFxDCvIttgSiHWjdGoTJvXtmRu5HacExfdarRcFhog==
+
+vue-i18n@9.0.0:
+  version "9.0.0"
+  resolved "https://registry.npmjs.org/vue-i18n/-/vue-i18n-9.0.0.tgz#a04c41d5ed3d5a068e923517bfaa0abcbc84e174"
+  integrity sha512-iks0eJDv/4cK/7tl/ooMUroNVVIGOK4kKS1PIHmPQk7QjT/sDfFM84vjPKgpARbw0GjJsOiADL43jufNfs9e9A==
+  dependencies:
+    "@intlify/core-base" "9.0.0"
+    "@intlify/shared" "9.0.0"
+    "@vue/devtools-api" "^6.0.0-beta.5"
 
 "vue-loader-v16@npm:vue-loader@^16.1.0":
   version "16.8.3"
