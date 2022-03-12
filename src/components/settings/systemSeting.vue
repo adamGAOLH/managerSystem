@@ -8,41 +8,50 @@
 -->
 <template>
   <div class="sys-seting">
-    <h4>{{t('setting.systemSettings')}}</h4>
+    <h4>{{ t("setting.systemSettings") }}</h4>
     <div class="settingli">
-      <span>{{t('setting.theme')}}</span>
+      <span>{{ t("setting.theme") }}</span>
       <themeColorPickerVue @change="changeColor" />
     </div>
-    <div class="settingli" style="margin:0;"><span>{{t('setting.language')}}</span><locales  /></div>
-    <div class="settingli"><span>Targe-View</span><Vswitch :ishowaa="tageIS" @checkIshow="checkIshow" /></div>
-    <div class="settingli"><span>{{t('setting.fixedHeader')}}</span><span>固定header</span></div>
+    <div class="settingli" style="margin: 0">
+      <span>{{ t("setting.language") }}</span
+      ><locales />
+    </div>
+    <div class="settingli">
+      <span>Targe-View</span
+      ><Vswitch :ishowaa="tageIS" @checkIshow="checkIshow" />
+    </div>
+    <div class="settingli">
+      <span>{{ t("setting.fixedHeader") }}</span
+      ><span>固定header</span>
+    </div>
   </div>
 </template>
 <script lang="ts">
 import { computed, defineComponent } from "vue";
 import themeColorPickerVue from "./themeColorPicker.vue";
 import locales from "./locales.vue";
-import Vswitch from './switch.vue'
+import Vswitch from "./switch.vue";
 import { useStore } from "vuex";
 import { useI18n } from "vue-i18n";
 export default defineComponent({
   name: "VSystemSeting",
-  components: { themeColorPickerVue, locales,Vswitch },
+  components: { themeColorPickerVue, locales, Vswitch },
   setup() {
     const store = useStore();
-    const tageIS=computed(()=>store.state.tagIshow)
-    const {t}=useI18n()
+    const tageIS = computed(() => store.state.tagIshow);
+    const { t } = useI18n();
     const changeColor = (value: string) => {
       store.dispatch("changeColor", value);
     };
-    const checkIshow=(val:string)=>{
-      store.dispatch('changeTage',val)
-    }
+    const checkIshow = (val: string) => {
+      store.dispatch("changeTage", val);
+    };
     return {
       tageIS,
       changeColor,
       checkIshow,
-      t
+      t,
     };
   },
 });

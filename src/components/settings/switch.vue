@@ -8,7 +8,7 @@
 -->
 <template>
   <el-switch
-    v-model="switchishow.ishow"
+    v-model="ore"
     class="ml-2"
     inline-prompt
     active-color="#13ce66"
@@ -19,30 +19,24 @@
   />
 </template>
 <script lang="ts">
-import { computed, defineComponent, reactive, toRefs, watch } from "vue";
-import { useStore } from "vuex";
+import { defineComponent, ref } from "vue";
+// import { useStore } from "vuex";
 
-import { Initdata } from "@/type/components";
+// import { Initdata } from "@/type/components";
 export default defineComponent({
   name: "Vswitch",
   props: {
     ishow: Boolean,
   },
   setup(props, content) {
-    const { ishow } = props;
-    const data = reactive(new Initdata());
-    // data.switchishow.ishow = ishow;
-    const store = useStore();
-    const tagIsow = computed(() => store.state.tagIshow);
-    watch(tagIsow, (val: boolean) => {
-    //   data.switchishow.ishow = val;
-    });
-    const changeSwith = (val: any) => {
+    const ore = ref(props.ishow);
+    const changeSwith = (val: boolean) => {
+      console.log(val);
+
       content.emit("checkIshow", val);
     };
     return {
-      tagIsow,
-      ...toRefs(data),
+      ore,
       changeSwith,
     };
   },

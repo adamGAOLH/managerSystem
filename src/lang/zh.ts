@@ -17,9 +17,9 @@ export default {
   setting: {
     title: "设置",
     systemSettings: "系统设置",
-    theme:'主题',
-    language:'语言',
-    fixedHeader:'固定header',
+    theme: "主题",
+    language: "语言",
+    fixedHeader: "固定header",
     languageEenglish: "英文",
     languageChinese: "中文",
   },

@@ -7,7 +7,7 @@
           <el-icon v-else><fold /></el-icon>
         </div>
 
-        <div @click="nextTo">{{t('root.title')}}</div>
+        <div @click="nextTo">{{ t("root.title") }}</div>
       </el-col>
       <el-col :span="10"></el-col>
       <el-col :span="4" class="header-row-right">
@@ -15,7 +15,9 @@
           <el-tooltip
             class="box-item"
             effect="dark"
-            :content="fullscreen ? t('root.closeFullScreen') : t('root.fullScreen')"
+            :content="
+              fullscreen ? t('root.closeFullScreen') : t('root.fullScreen')
+            "
             placement="bottom"
           >
             <el-icon><rank /></el-icon>
@@ -45,8 +47,10 @@
           </el-button>
           <template #dropdown>
             <el-dropdown-menu>
-              <el-dropdown-item @click="openDrawer">{{t('root.setting')}}</el-dropdown-item>
-              <el-dropdown-item>{{t('root.loginout')}}</el-dropdown-item>
+              <el-dropdown-item @click="openDrawer">{{
+                t("root.setting")
+              }}</el-dropdown-item>
+              <el-dropdown-item>{{ t("root.loginout") }}</el-dropdown-item>
             </el-dropdown-menu>
           </template>
         </el-dropdown>
@@ -77,7 +81,7 @@ export default defineComponent({
     const data = reactive(new Initdata());
     const store = useStore();
     const router = useRouter();
-    const {t}=useI18n()
+    const { t } = useI18n();
     const isCollapse = computed(() => store.state.isCollapse);
     const fullscreen = computed(() => store.state.fullscreen);
     onMounted(() => {
@@ -127,7 +131,7 @@ export default defineComponent({
       Isfull,
       checkFullScreen,
       openDrawer,
-      t
+      t,
     };
   },
 });
