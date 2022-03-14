@@ -4,7 +4,7 @@
  * @Author: Gao
  * @Date: 2022-03-07 15:58:17
  * @LastEditors: Gao
- * @LastEditTime: 2022-03-11 16:28:38
+ * @LastEditTime: 2022-03-14 11:19:17
 -->
 
 <template>
@@ -19,25 +19,25 @@
       unique-opened
       router
     >
-      <template v-for="res in routerList[0].children" :key="res.meta.index">
+      <template v-for="res in routerList" :key="res.id">
         <el-sub-menu v-if="res.children" :index="res.path">
           <template #title>
             <el-icon><location /></el-icon>
-            <span>{{ res.meta.title }}</span>
+            <span>{{ res.title }}</span>
           </template>
           <template v-for="(item, index) in res.children" :key="index">
-            <el-sub-menu v-if="item.childen" :index="item.path">
-              <template #title>{{ item.meta.title }}</template>
+            <el-sub-menu v-if="item.children" :index="item.path">
+              <template #title>{{ item.title }}</template>
             </el-sub-menu>
             <el-menu-item v-else :index="item.path">
               <el-icon><icon-menu /></el-icon>
-              <span>{{ item.meta.title }}</span>
+              <span>{{ item.title }}</span>
             </el-menu-item>
           </template>
         </el-sub-menu>
         <el-menu-item v-else :index="res.path">
           <el-icon><icon-menu /></el-icon>
-          <span>{{ res.meta.title }}</span>
+          <span>{{ res.title }}</span>
         </el-menu-item>
       </template>
     </el-menu>
@@ -46,7 +46,8 @@
 <script lang="ts">
 import { computed, defineComponent } from "vue";
 import { useStore } from "vuex";
-import { useRoute, useRouter } from "vue-router";
+import { useRoute } from "vue-router";
+import { menuInit } from "@/type/components";
 import {
   Location,
   // Document,
@@ -59,9 +60,31 @@ export default defineComponent({
   setup() {
     const store = useStore();
     const route = useRoute();
-    const router = useRouter();
     const isCollapse = computed(() => store.state.isCollapse);
-    const routerList: any = router.currentRoute.value.matched;
+    const routerList: Array<menuInit> = [
+      {
+        id: "1",
+        title: "系统首页",
+        path: "/index",
+      },
+      {
+        path: " ",
+        title: "图表管理",
+        id: "2",
+        children: [
+          {
+            path: "/echarts",
+            title: "柱狀图表",
+            id: "2-1",
+          },
+          {
+            path: "/lineChart",
+            title: "折线图表",
+            id: "2-2",
+          },
+        ],
+      },
+    ];
     const Router = computed(() => {
       return route.path;
     });

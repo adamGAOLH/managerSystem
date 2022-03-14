@@ -4,7 +4,7 @@
  * @Author: Gao
  * @Date: 2022-03-09 09:37:18
  * @LastEditors: Gao
- * @LastEditTime: 2022-03-11 16:12:55
+ * @LastEditTime: 2022-03-14 11:18:57
  */
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import Home from "../views/home/Home.vue";
@@ -32,11 +32,25 @@ const routes: Array<RouteRecordRaw> = [
         path: "/echarts",
         name: "Echarts",
         meta: {
-          title: "图表管理",
+          title: "柱状图表",
           index: 1,
         },
         component: () =>
-          import(/* webpackChunkName: "about" */ "../views/echarts/index.vue"),
+          import(
+            /* webpackChunkName: "about" */ "../views/echarts/columnChart.vue"
+          ),
+      },
+      {
+        path: "/lineChart",
+        name: "LineChart",
+        meta: {
+          title: "折线图表",
+          index: 1,
+        },
+        component: () =>
+          import(
+            /* webpackChunkName: "about" */ "../views/echarts/lineChart.vue"
+          ),
       },
     ],
   },

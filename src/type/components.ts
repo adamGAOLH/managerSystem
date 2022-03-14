@@ -4,7 +4,7 @@
  * @Author: Gao
  * @Date: 2022-03-07 11:45:04
  * @LastEditors: Gao
- * @LastEditTime: 2022-03-10 17:43:03
+ * @LastEditTime: 2022-03-14 10:26:27
  */
 export interface headerdata {
   show: boolean;
@@ -18,7 +18,12 @@ export interface tageData {
 export interface switcInit {
   ishow: boolean;
 }
-
+export interface menuInit {
+  id: string;
+  title: string;
+  path: string;
+  children?: Array<menuInit>;
+}
 export class Initdata {
   header: headerdata = {
     show: false,

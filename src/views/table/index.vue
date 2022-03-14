@@ -4,7 +4,7 @@
  * @Author: Gao
  * @Date: 2022-03-09 09:37:18
  * @LastEditors: Gao
- * @LastEditTime: 2022-03-11 16:03:47
+ * @LastEditTime: 2022-03-14 11:19:36
 -->
 <template>
   <div class="table">
@@ -50,5 +50,4 @@ export default defineComponent({
 });
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>
