@@ -18,9 +18,9 @@ export default {
   setting: {
     title: "Setting",
     systemSettings: "SystemSettings",
-    theme:'Theme',
-    language:'Language',
-    fixedHeader:'FixedHeader',
+    theme: "Theme",
+    language: "Language",
+    fixedHeader: "FixedHeader",
     languageEenglish: "English",
     languageChinese: "Chinaese",
   },
