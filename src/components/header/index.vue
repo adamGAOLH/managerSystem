@@ -21,7 +21,7 @@
             <el-icon><rank /></el-icon>
           </el-tooltip>
         </div>
-        <div class="header-row-right-div">
+        <div class="header-row-right-div"  style="    margin-top: 5px;">
           <el-tooltip
             class="box-item"
             effect="dark"
@@ -35,11 +35,11 @@
             span
           </el-tooltip>
         </div>
-        <el-avatar
+        <el-avatar style="    margin-right: 15px;"
           src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"
         ></el-avatar>
         <el-dropdown>
-          <el-button type="primary">
+          <el-button type="text" >
             Join
             <el-icon><caret-bottom /></el-icon>
           </el-button>
@@ -136,7 +136,7 @@ export default defineComponent({
 .header {
   width: 100%;
   height: 100%;
-  background: #409efc;
+  background: #2d8cf0;
   .header-row {
     height: 100%;
     display: flex;
@@ -163,10 +163,17 @@ export default defineComponent({
       .header-row-right-div {
         display: flex;
         align-items: center;
-        margin-right: 10px;
+        margin-right: 30px;
         font-size: 22px;
         color: #fff;
+
       }
+      .el-button--text{
+          color: #fff;
+          &:hover{
+              color: #fff;
+          }
+        }
     }
   }
 }

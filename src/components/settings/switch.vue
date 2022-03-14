@@ -4,11 +4,11 @@
  * @Author: Gao
  * @Date: 2022-03-10 16:10:51
  * @LastEditors: Gao
- * @LastEditTime: 2022-03-10 17:59:08
+ * @LastEditTime: 2022-03-11 10:05:01
 -->
 <template>
   <el-switch
-    v-model="switchishow.ishow"
+    v-model="ishows"
     class="ml-2"
     inline-prompt
     active-color="#13ce66"
@@ -19,30 +19,19 @@
   />
 </template>
 <script lang="ts">
-import { computed, defineComponent, reactive, toRefs, watch } from "vue";
-import { useStore } from "vuex";
-
-import { Initdata } from "@/type/components";
+import { defineComponent, ref } from "vue";
 export default defineComponent({
   name: "Vswitch",
   props: {
     ishow: Boolean,
   },
   setup(props, content) {
-    const { ishow } = props;
-    const data = reactive(new Initdata());
-    // data.switchishow.ishow = ishow;
-    const store = useStore();
-    const tagIsow = computed(() => store.state.tagIshow);
-    watch(tagIsow, (val: boolean) => {
-    //   data.switchishow.ishow = val;
-    });
+    const ishows = ref(props.ishow);
     const changeSwith = (val: any) => {
       content.emit("checkIshow", val);
     };
     return {
-      tagIsow,
-      ...toRefs(data),
+      ishows,
       changeSwith,
     };
   },

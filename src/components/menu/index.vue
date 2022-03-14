@@ -4,14 +4,14 @@
  * @Author: Gao
  * @Date: 2022-03-07 15:58:17
  * @LastEditors: Gao
- * @LastEditTime: 2022-03-08 11:22:52
+ * @LastEditTime: 2022-03-11 16:28:38
 -->
 
 <template>
   <div class="menu">
     <el-menu
       active-text-color="#ffd04b"
-      background-color="#545c64"
+      background-color="#495060"
       class="el-menu-vertical-demo"
       :default-active="Router"
       text-color="#fff"

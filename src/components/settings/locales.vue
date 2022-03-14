@@ -4,20 +4,25 @@
  * @Author: Gao
  * @Date: 2022-03-10 14:45:12
  * @LastEditors: Gao
- * @LastEditTime: 2022-03-10 15:52:22
+ * @LastEditTime: 2022-03-11 09:52:50
 -->
 <template>
   <div class="locles">
     <el-dropdown @command="handleCommand">
-      <img style="width: 36px;" src="../../assets/multi-language.png" alt="" srcset="" />
+      <img
+        style="width: 36px"
+        src="../../assets/multi-language.png"
+        alt=""
+        srcset=""
+      />
       <template #dropdown>
         <el-dropdown-menu>
-          <el-dropdown-item :disabled="locle == 'zh'" command="zh"
-            >{{t('setting.languageChinese')}}</el-dropdown-item
-          >
-          <el-dropdown-item :disabled="locle == 'en'" command="en"
-            >{{t('setting.languageEenglish')}}</el-dropdown-item
-          >
+          <el-dropdown-item :disabled="locle == 'zh'" command="zh">{{
+            t("setting.languageChinese")
+          }}</el-dropdown-item>
+          <el-dropdown-item :disabled="locle == 'en'" command="en">{{
+            t("setting.languageEenglish")
+          }}</el-dropdown-item>
         </el-dropdown-menu>
       </template>
     </el-dropdown>
@@ -33,7 +38,7 @@ export default defineComponent({
   name: "locales",
   setup() {
     const store = useStore();
-    const { locale,t } = useI18n();
+    const { locale, t } = useI18n();
     const locle = computed(() => store.state.locale);
 
     const handleCommand = (val: string) => {
@@ -47,7 +52,7 @@ export default defineComponent({
     return {
       locle,
       handleCommand,
-      t
+      t,
     };
   },
 });

@@ -4,7 +4,7 @@
  * @Author: Gao
  * @Date: 2022-03-07 11:45:04
  * @LastEditors: Gao
- * @LastEditTime: 2022-03-08 11:24:15
+ * @LastEditTime: 2022-03-11 16:02:35
 -->
 <template>
   <el-container>
@@ -12,12 +12,14 @@
       <v-headers />
     </el-header>
     <el-container>
-      <el-aside width="200px">
+      <el-aside :width="isCollapse ? '200px' : '64px'">
         <VMenu />
       </el-aside>
       <el-main>
-        <VTageList />
-        <router-view />
+        <VTageList v-if="ishows" />
+        <div class="conter">
+          <router-view />
+        </div>
         <VDrawer />
       </el-main>
     </el-container>
@@ -25,9 +27,10 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, reactive, toRefs } from "vue";
+import { computed, defineComponent, onMounted, reactive, toRefs } from "vue";
 import { api } from "@/api/demo";
 import { demo } from "@/type/demo";
+import { useStore } from "vuex";
 import VHeaders from "@/components/header/index.vue";
 import VMenu from "@/components/menu/index.vue";
 import VTageList from "@/components/tagList/index.vue";
@@ -42,6 +45,10 @@ export default defineComponent({
   },
   setup() {
     let data = reactive(new demo());
+    const store = useStore();
+    const ishows = computed(() => store.state.tagIshow);
+    const isCollapse = computed(() => store.state.isCollapse);
+
     onMounted(() => {
       api.mocs
         .lists()
@@ -54,6 +61,8 @@ export default defineComponent({
     });
 
     return {
+      ishows,
+      isCollapse,
       ...toRefs(data),
     };
   },
@@ -64,7 +73,25 @@ export default defineComponent({
   margin: 0;
   padding: 0;
 }
+.el-aside {
+  margin-right: 20px;
+  transition: width 0.4s;
+  -webkit-transition: width 0.4s;
+  -moz-transition: width 0.4s;
+  -webkit-transition: width 0.4s;
+  -o-transition: width 0.4s;
+}
 .el-main {
   padding: 0;
+  overflow: hidden;
+  height: 100vh;
+  .conter {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+      width: 0;
+    }
+  }
 }
 </style>

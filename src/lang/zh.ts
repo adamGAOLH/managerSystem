@@ -4,7 +4,7 @@
  * @Author: Gao
  * @Date: 2022-03-10 10:19:23
  * @LastEditors: Gao
- * @LastEditTime: 2022-03-10 16:05:48
+ * @LastEditTime: 2022-03-11 09:48:43
  */
 export default {
   root: {
@@ -17,9 +17,9 @@ export default {
   setting: {
     title: "设置",
     systemSettings: "系统设置",
-    theme:'主题',
-    language:'语言',
-    fixedHeader:'固定header',
+    theme: "主题",
+    language: "语言",
+    fixedHeader: "固定header",
     languageEenglish: "英文",
     languageChinese: "中文",
   },
