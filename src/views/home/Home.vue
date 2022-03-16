@@ -4,7 +4,7 @@
  * @Author: Gao
  * @Date: 2022-03-07 11:45:04
  * @LastEditors: Gao
- * @LastEditTime: 2022-03-11 16:02:35
+ * @LastEditTime: 2022-03-16 14:25:42
 -->
 <template>
   <el-container>
@@ -88,6 +88,7 @@ export default defineComponent({
   .conter {
     width: 100%;
     height: 100%;
+    padding:20px;
     overflow-y: auto;
     &::-webkit-scrollbar {
       width: 0;
