@@ -53,11 +53,16 @@ export default defineComponent({
         title: {
           text: "Stacked Line",
         },
+        color: ["#80FFA5", "#00DDFF", "#37A2FF", "#FF0087", "#FFBF00"],
+        backgroundColor: "#100C2A",
         tooltip: {
           trigger: "axis",
         },
         legend: {
           data: ["Email", "Union Ads", "Video Ads", "Direct", "Search Engine"],
+          textStyle: {
+            color: "red",
+          },
         },
         grid: {
           left: "3%",
@@ -77,15 +82,24 @@ export default defineComponent({
         },
         yAxis: {
           type: "value",
+          splitLine: {
+            show: false,
+          },
         },
-        series: state.series
+        series: state.series,
       };
       myChart.setOption(option);
+      setTimeout(() => {
+        window.onresize = () => {
+          myChart.resize();
+        };
+      }, 200);
     };
     onMounted(() => {
       echartsInit();
     });
     // TODO:为了简写方便 没有严格使用数据模式，后续使用请更改！
+    // 同时这个组件是可封装的 可复用， 由于只是简单的demo所以没有做太多的封装
     watch(state, (newValue) => {
       console.log(newValue);
     });

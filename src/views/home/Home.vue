@@ -86,9 +86,9 @@ export default defineComponent({
   overflow: hidden;
   height: 100vh;
   .conter {
-    width: 100%;
+    width: calc(100%-40px);
     height: 100%;
-    padding:20px;
+    padding: 20px;
     overflow-y: auto;
     &::-webkit-scrollbar {
       width: 0;

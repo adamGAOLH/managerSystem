@@ -84,6 +84,26 @@ export default defineComponent({
           },
         ],
       },
+      {
+        path: "/guide",
+        title: "引导页",
+        id: "3",
+      },
+      {
+        path: "/drag",
+        title: "拖拽",
+        id: "4",
+      },
+      {
+        path: "/excel",
+        title: "Excel",
+        id: "5",
+      },
+      {
+        path: "/component",
+        title: "组件",
+        id: "4",
+      },
     ];
     const Router = computed(() => {
       return route.path;

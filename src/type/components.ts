@@ -29,6 +29,7 @@ export interface echartsInit {
   type: string;
   stack: string;
   data: Array<number>;
+  smooth: boolean;
 }
 export interface echartsStyle {
   width: string;

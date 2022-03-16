@@ -52,6 +52,48 @@ const routes: Array<RouteRecordRaw> = [
             /* webpackChunkName: "about" */ "../views/echarts/lineChart.vue"
           ),
       },
+      {
+        path: "/drag",
+        name: "Drag",
+        meta: {
+          title: "拖拽",
+          index: 1,
+        },
+        component: () =>
+          import(/* webpackChunkName: "about" */ "../views/drag/index.vue"),
+      },
+      {
+        path: "/excel",
+        name: "Excel",
+        meta: {
+          title: "Excel",
+          index: 1,
+        },
+        component: () =>
+          import(/* webpackChunkName: "about" */ "../views/excel/index.vue"),
+      },
+      {
+        path: "/component",
+        name: "Component",
+        meta: {
+          title: "组件",
+          index: 1,
+        },
+        component: () =>
+          import(
+            /* webpackChunkName: "about" */ "../views/component/index.vue"
+          ),
+      },
+      {
+        path: "/guide",
+        name: "Guide",
+        meta: {
+          title: "引导页",
+          index: 1,
+        },
+        component: () =>
+          import(/* webpackChunkName: "about" */ "../views/guide/index.vue"),
+      },
     ],
   },
   {
