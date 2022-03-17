@@ -4,7 +4,7 @@
  * @Author: Gao
  * @Date: 2022-03-07 11:45:04
  * @LastEditors: Gao
- * @LastEditTime: 2022-03-09 16:58:38
+ * @LastEditTime: 2022-03-17 17:19:53
  */
 module.exports = {
   root: true,
@@ -24,8 +24,9 @@ module.exports = {
   rules: {
     "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
     "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
-    "@typescript-eslint/explicit-module-boundary-types":"off",
-    "@typescript-eslint/no-explicit-any":["off"],
-    '@typescript-eslint/no-var-requires': 0
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-explicit-any": ["off"],
+    '@typescript-eslint/no-var-requires': 0,
+    "@typescript-eslint/no-inferrable-types": "off"
   },
 };

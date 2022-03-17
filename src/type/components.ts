@@ -4,7 +4,7 @@
  * @Author: Gao
  * @Date: 2022-03-07 11:45:04
  * @LastEditors: Gao
- * @LastEditTime: 2022-03-16 15:47:09
+ * @LastEditTime: 2022-03-17 17:14:24
  */
 export interface headerdata {
   show: boolean;
@@ -34,6 +34,16 @@ export interface echartsInit {
 export interface echartsStyle {
   width: string;
   height: string;
+}
+export interface draggable {
+  name: string;
+  id: number;
+}
+export class InitDraggable {
+  list1: Array<draggable> = [];
+  list2: Array<draggable> = [];
+  list3: Array<draggable> = [];
+  group: string = "";
 }
 export class InitEcharts {
   style: echartsStyle = {

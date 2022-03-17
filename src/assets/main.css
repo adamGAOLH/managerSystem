@@ -40,6 +40,9 @@ a {
     overflow-y: scroll;
     box-sizing: border-box;
 }
+.driver-highlighted-element{
+    color: #000 !important;
+}
 
 .content-collapse {
     left: 65px;

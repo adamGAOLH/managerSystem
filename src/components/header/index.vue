@@ -11,7 +11,7 @@
       </el-col>
       <el-col :span="10"></el-col>
       <el-col :span="4" class="header-row-right">
-        <div class="header-row-right-div" @click="Isfull">
+        <div class="header-row-right-div" @click="Isfull" id="screen">
           <el-tooltip
             class="box-item"
             effect="dark"
@@ -23,7 +23,7 @@
             <el-icon><rank /></el-icon>
           </el-tooltip>
         </div>
-        <div class="header-row-right-div" style="margin-top: 5px">
+        <div class="header-row-right-div" style="margin-top: 5px" id="message">
           <el-tooltip
             class="box-item"
             effect="dark"
@@ -41,7 +41,7 @@
           style="margin-right: 15px"
           src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"
         ></el-avatar>
-        <el-dropdown>
+        <el-dropdown >
           <el-button type="text">
             Join
             <el-icon><caret-bottom /></el-icon>
