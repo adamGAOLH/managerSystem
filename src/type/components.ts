@@ -4,7 +4,7 @@
  * @Author: Gao
  * @Date: 2022-03-07 11:45:04
  * @LastEditors: Gao
- * @LastEditTime: 2022-03-17 17:14:24
+ * @LastEditTime: 2022-03-18 15:53:27
  */
 export interface headerdata {
   show: boolean;
@@ -39,10 +39,21 @@ export interface draggable {
   name: string;
   id: number;
 }
+export interface dragTable{
+  date:string;
+  name: string;
+  state:string;
+  city: string;
+  address:string;
+  zip:string;
+  tag:string;
+  id:number;
+}
 export class InitDraggable {
   list1: Array<draggable> = [];
   list2: Array<draggable> = [];
   list3: Array<draggable> = [];
+  tableData:Array<dragTable>=[]
   group: string = "";
 }
 export class InitEcharts {

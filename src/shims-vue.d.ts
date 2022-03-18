@@ -4,7 +4,7 @@
  * @Author: Gao
  * @Date: 2022-03-07 11:45:04
  * @LastEditors: Gao
- * @LastEditTime: 2022-03-09 16:23:02
+ * @LastEditTime: 2022-03-18 16:24:50
  */
 /* eslint-disable */
 declare module "*.vue" {
@@ -13,6 +13,7 @@ declare module "*.vue" {
   export default component;
 }
 declare module "screenfull";
+declare module "sortablejs";
 
 declare module "*.module.scss" {
   const classes: [readonly [key: string], string];

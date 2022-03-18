@@ -4,7 +4,7 @@
  * @Author: Gao
  * @Date: 2022-03-17 09:42:25
  * @LastEditors: Gao
- * @LastEditTime: 2022-03-17 17:39:26
+ * @LastEditTime: 2022-03-18 15:43:53
 -->
 <template>
   <div class="board">
@@ -30,14 +30,19 @@
       class="drag-next done"
     ></draggableNext>
   </div>
+
+  <div class="tables">
+    <dragTable></dragTable>
+  </div>
 </template>
 <script lang="ts">
 import { defineComponent, reactive, toRefs } from "vue";
 import draggableNext from "@/components/drag/index.vue";
+import dragTable from "./dragTable.vue";
 import { InitDraggable } from "@/type/components";
 export default defineComponent({
   name: "index",
-  components: { draggableNext },
+  components: { draggableNext,dragTable },
   setup() {
     let state = reactive(new InitDraggable());
     state.list1= [
@@ -64,7 +69,18 @@ export default defineComponent({
 });
 </script>
 <style lang="scss">
-
+.board {
+  width: 1000px;
+  margin-left: 20px;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  align-items: flex-start;
+}
+.tables{
+  width: 97%;
+  margin:30px 0 0 20px;
+}
 .drag-next {
   &.todo {
     .drag-title {
@@ -83,14 +99,4 @@ export default defineComponent({
   }
 }
 
-</style>
-<style lang="scss" scoped>
-.board {
-  width: 1000px;
-  margin-left: 20px;
-  display: flex;
-  justify-content: space-around;
-  flex-direction: row;
-  align-items: flex-start;
-}
 </style>

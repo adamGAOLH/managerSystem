@@ -4,27 +4,18 @@
  * @Author: Gao
  * @Date: 2022-03-17 15:02:42
  * @LastEditors: Gao
- * @LastEditTime: 2022-03-17 17:40:02
+ * @LastEditTime: 2022-03-18 09:38:24
 -->
 <template>
   <div class="drag">
     <div class="drag-title">
       {{ title }}
     </div>
-    <draggable
-      :list="list"
-      v-bind="$attrs"
-      class="drag-content"
-    >
-      <div
-        v-for="res in list"
-        :key="res.id"
-        class="drag-item"
-      >
+    <draggable :list="list" v-bind="$attrs" class="drag-content">
+      <div v-for="res in list" :key="res.id" class="drag-item">
         {{ res.name }} {{ res.id }}
       </div>
     </draggable>
-
   </div>
 </template>
 <script lang="ts">
