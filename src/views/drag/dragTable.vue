@@ -26,7 +26,7 @@
   </el-table>
 </template>
 <script lang="ts">
-import { defineComponent, reactive, toRefs,nextTick, onMounted  } from "vue";
+import { defineComponent, reactive, toRefs, nextTick, onMounted } from "vue";
 import Sortable from "sortablejs";
 import { InitDraggable } from "@/type/components";
 export default defineComponent({
@@ -74,17 +74,58 @@ export default defineComponent({
         zip: "CA 90036",
         tag: "Office",
       },
+      {
+        id: 5,
+        date: "2016-05-03",
+        name: "Tom",
+        state: "California",
+        city: "Los Angeles",
+        address: "No. 189, Grove St, Los Angeles",
+        zip: "CA 90036",
+        tag: "Home",
+      },
+      {
+        id: 6,
+        date: "2016-05-02",
+        name: "Tom",
+        state: "California",
+        city: "Los Angeles",
+        address: "No. 189, Grove St, Los Angeles",
+        zip: "CA 90036",
+        tag: "Office",
+      },
+      {
+        id: 7,
+        date: "2016-05-04",
+        name: "Tom",
+        state: "California",
+        city: "Los Angeles",
+        address: "No. 189, Grove St, Los Angeles",
+        zip: "CA 90036",
+        tag: "Home",
+      },
+      {
+        id: 8,
+        date: "2016-05-01",
+        name: "Tom",
+        state: "California",
+        city: "Los Angeles",
+        address: "No. 189, Grove St, Los Angeles",
+        zip: "CA 90036",
+        tag: "Office",
+      },
     ];
     const handleClick = () => {
       console.log("click");
     };
-    onMounted(()=>{
-        drag()
-
-    })
+    onMounted(() => {
+      drag();
+    });
     const drag = () => {
       // 首先获取需要拖拽的dom节点
-      const el1 = document.querySelectorAll(".tables .el-table__body-wrapper")[0].querySelectorAll("table > tbody")[0];
+      const el1 = document
+        .querySelectorAll(".tables .el-table__body-wrapper")[0]
+        .querySelectorAll("table > tbody")[0];
       Sortable.create(el1, {
         disabled: false, // 是否开启拖拽
         ghostClass: "sortable-ghost", //拖拽样式
@@ -94,7 +135,7 @@ export default defineComponent({
           pull: false,
           put: false,
         },
-        onEnd: (e:any) => {
+        onEnd: (e: any) => {
           // 这里主要进行数据的处理，拖拽实际并不会改变绑定数据的顺序，这里需要自己做数据的顺序更改
           let arr = state.tableData; // 获取表数据
           arr.splice(e.newIndex, 0, arr.splice(e.oldIndex, 1)[0]); // 数据处理

@@ -20,6 +20,7 @@
         <div class="conter">
           <router-view />
         </div>
+        <div style="width: 100%; height: 100px"></div>
         <VDrawer />
       </el-main>
     </el-container>
@@ -81,18 +82,32 @@ export default defineComponent({
   -webkit-transition: width 0.4s;
   -o-transition: width 0.4s;
 }
+.clearfix {
+  &::after {
+    display: block;
+    content: "";
+    clear: both;
+  }
+}
+
 .el-main {
   padding: 0;
-  overflow: hidden;
+  overflow: scroll;
   height: 100vh;
   .conter {
     width: calc(100%-40px);
-    height: 100%;
     padding: 20px;
-    overflow-y: auto;
     &::-webkit-scrollbar {
       width: 0;
     }
   }
+}
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: ".";
+  clear: both;
+  height: 0;
 }
 </style>

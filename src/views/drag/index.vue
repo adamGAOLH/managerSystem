@@ -42,30 +42,30 @@ import dragTable from "./dragTable.vue";
 import { InitDraggable } from "@/type/components";
 export default defineComponent({
   name: "index",
-  components: { draggableNext,dragTable },
+  components: { draggableNext, dragTable },
   setup() {
     let state = reactive(new InitDraggable());
-    state.list1= [
-        { name: "Mission", id: 1 },
-        { name: "Mission", id: 2 },
-        { name: "Mission", id: 3 },
-        { name: "Mission", id: 4 },
-      ]
-      state.group= "mission"
-      state.list2= [
-        { name: "Mission", id: 5 },
-        { name: "Mission", id: 6 },
-        { name: "Mission", id: 7 },
-      ],
-      state.list3= [
+    state.list1 = [
+      { name: "Mission", id: 1 },
+      { name: "Mission", id: 2 },
+      { name: "Mission", id: 3 },
+      { name: "Mission", id: 4 },
+    ];
+    state.group = "mission";
+    (state.list2 = [
+      { name: "Mission", id: 5 },
+      { name: "Mission", id: 6 },
+      { name: "Mission", id: 7 },
+    ]),
+      (state.list3 = [
         { name: "Mission", id: 8 },
         { name: "Mission", id: 9 },
         { name: "Mission", id: 10 },
-      ]
+      ]);
     return {
       ...toRefs(state),
     };
-   }
+  },
 });
 </script>
 <style lang="scss">
@@ -77,14 +77,14 @@ export default defineComponent({
   flex-direction: row;
   align-items: flex-start;
 }
-.tables{
+.tables {
   width: 97%;
-  margin:30px 0 0 20px;
+  margin: 30px 0 0 20px;
 }
 .drag-next {
   &.todo {
     .drag-title {
-      background: #4A9FF9;
+      background: #4a9ff9;
     }
   }
   &.working {
@@ -98,5 +98,4 @@ export default defineComponent({
     }
   }
 }
-
 </style>

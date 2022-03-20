@@ -12,8 +12,9 @@
       <el-descriptions-item label="driver">
         使用driver.js进行引导描述
 
-        <a href=" https://kamranahmed.info/driver.js/"> https://kamranahmed.info/driver.js/</a>
-
+        <a href=" https://kamranahmed.info/driver.js/">
+          https://kamranahmed.info/driver.js/</a
+        >
       </el-descriptions-item>
     </el-descriptions>
     <el-button type="primary" @click.prevent.stop="guidFun">引导页</el-button>

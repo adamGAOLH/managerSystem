@@ -12,7 +12,14 @@ import router from "./router";
 import store from "./store";
 import ElementPlus from "element-plus";
 import "element-plus/dist/index.css";
-import i18n from "@/lang/index.ts"; //引入i18n组件
+import i18n from "@/lang/index"; //引入i18n组件
+import dragdialog from "@/utils/dragdialog";
 require("../mock");
 
-createApp(App).use(ElementPlus).use(i18n).use(store).use(router).mount("#app");
+createApp(App)
+  .use(dragdialog)
+  .use(ElementPlus)
+  .use(i18n)
+  .use(store)
+  .use(router)
+  .mount("#app");

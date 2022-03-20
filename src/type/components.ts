@@ -39,21 +39,21 @@ export interface draggable {
   name: string;
   id: number;
 }
-export interface dragTable{
-  date:string;
+export interface dragTable {
+  date: string;
   name: string;
-  state:string;
+  state: string;
   city: string;
-  address:string;
-  zip:string;
-  tag:string;
-  id:number;
+  address: string;
+  zip: string;
+  tag: string;
+  id: number;
 }
 export class InitDraggable {
   list1: Array<draggable> = [];
   list2: Array<draggable> = [];
   list3: Array<draggable> = [];
-  tableData:Array<dragTable>=[]
+  tableData: Array<dragTable> = [];
   group: string = "";
 }
 export class InitEcharts {
