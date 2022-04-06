@@ -1,7 +1,7 @@
 const dragdialog = (app: any, options: any) => {
   console.log(options);
 
-  app.directives("drage", {
+  app.directive("drage", {
     mounted(el: any, bind: any) {
       console.log(bind);
 

@@ -1,6 +1,13 @@
 <template>
   <div class="">
-    <el-dialog v-model="dialogVisible" title="Tips" width="30%" draggable>
+    <el-dialog
+      v-model="dialogVisible"
+      title="Tips"
+      width="30%"
+      draggable
+      close-on-click-modal
+      :before-close="chanDialog"
+    >
       <span>It's a draggable Dialog</span>
       <template #footer>
         <span class="dialog-footer">
@@ -12,20 +19,22 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { defineComponent, ref, watch } from "vue";
 export default defineComponent({
   name: "diaoglog",
   props: {
-    dialogVisible: {
-      type: Boolean,
-      default: false,
-    },
+    flag: Boolean,
   },
   setup(prop, content) {
+    const dialogVisible = ref(false);
     const chanDialog = () => {
       content.emit("changedia", false);
     };
+    watch(prop, () => {
+      dialogVisible.value = prop.flag;
+    });
     return {
+      dialogVisible,
       chanDialog,
     };
   },

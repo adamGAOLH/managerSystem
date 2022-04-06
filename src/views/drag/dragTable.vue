@@ -24,14 +24,25 @@
       </template>
     </el-table-column>
   </el-table>
+  <Dialoglog :flag="flag" @changedia="changedia" />
 </template>
 <script lang="ts">
-import { defineComponent, reactive, toRefs, nextTick, onMounted } from "vue";
+import {
+  defineComponent,
+  reactive,
+  toRefs,
+  nextTick,
+  onMounted,
+  onBeforeMount,
+} from "vue";
 import Sortable from "sortablejs";
 import { InitDraggable } from "@/type/components";
+import Dialoglog from "./diaoglog.vue";
 export default defineComponent({
   name: "dragTable",
-  setup() {
+  emits: ["change"],
+  components: { Dialoglog },
+  setup(prop, { emit }) {
     const state = reactive(new InitDraggable());
     state.tableData = [
       {
@@ -117,7 +128,17 @@ export default defineComponent({
     ];
     const handleClick = () => {
       console.log("click");
+      state.flag = true;
     };
+    const handleTable = () => {
+      return state.tableData;
+    };
+    const changedia = () => {
+      state.flag = false;
+    };
+    onBeforeMount(() => {
+      emit("change", handleTable);
+    });
     onMounted(() => {
       drag();
     });
@@ -148,6 +169,8 @@ export default defineComponent({
     return {
       ...toRefs(state),
       handleClick,
+      changedia,
+      handleTable,
     };
   },
 });

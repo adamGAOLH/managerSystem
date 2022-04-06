@@ -55,6 +55,7 @@ export class InitDraggable {
   list3: Array<draggable> = [];
   tableData: Array<dragTable> = [];
   group: string = "";
+  flag: boolean = false;
 }
 export class InitEcharts {
   style: echartsStyle = {

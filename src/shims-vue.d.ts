@@ -14,7 +14,8 @@ declare module "*.vue" {
 }
 declare module "screenfull";
 declare module "sortablejs";
-
+declare module "file-saver";
+declare module "xlsx/xlsx.mjs";
 declare module "*.module.scss" {
   const classes: [readonly [key: string], string];
   export default classes;
